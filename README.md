@@ -3,7 +3,6 @@
 analytics-python is a python client for [Flywheel](https://tryflywheel.com)
 
 <div align="center">
-  <img src="https://user-images.githubusercontent.com/16131737/53616895-a1142d80-3b99-11e9-8e0e-594c0b0dcdc9.png"/>
   <p><b><i>You can't fix what you can't measure</i></b></p>
 </div>
 
