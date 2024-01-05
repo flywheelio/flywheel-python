@@ -4,7 +4,7 @@ from threading import Thread
 import backoff
 import json
 
-from segment.analytics.request import post, APIError, DatetimeSerializer
+from flywheel.analytics.request import post, APIError, DatetimeSerializer
 
 from queue import Empty
 
@@ -18,13 +18,13 @@ class FatalError(Exception):
     def __init__(self, message):
         self.message = message
     def __str__(self):
-        msg = "[Segment] {0})"
+        msg = "[Flywheel] {0})"
         return msg.format(self.message)
 
 
 class Consumer(Thread):
     """Consumes the messages from the client's queue."""
-    log = logging.getLogger('segment')
+    log = logging.getLogger('flywheel')
 
     def __init__(self, queue, write_key, upload_size=100, host=None,
                  on_error=None, upload_interval=0.5, gzip=False, retries=10,

@@ -7,20 +7,20 @@ from dateutil.tz import tzutc
 from requests.auth import HTTPBasicAuth
 from requests import sessions
 
-from segment.analytics.version import VERSION
-from segment.analytics.utils import remove_trailing_slash
+from flywheel.analytics.version import VERSION
+from flywheel.analytics.utils import remove_trailing_slash
 
 _session = sessions.Session()
 
 
 def post(write_key, host=None, gzip=False, timeout=15, proxies=None, oauth_manager=None, **kwargs):
     """Post the `kwargs` to the API"""
-    log = logging.getLogger('segment')
+    log = logging.getLogger('flywheel')
     body = kwargs
     if not "sentAt" in body.keys():
         body["sentAt"] = datetime.utcnow().replace(tzinfo=tzutc()).isoformat()
     body["writeKey"] = write_key
-    url = remove_trailing_slash(host or 'https://api.segment.io') + '/v1/batch'
+    url = remove_trailing_slash(host or 'https://api.theflywheel.app') + 'event-capture'
     auth = None
     if oauth_manager:
         auth = oauth_manager.get_token()
@@ -81,7 +81,7 @@ class APIError(Exception):
         self.code = code
 
     def __str__(self):
-        msg = "[Segment] {0}: {1} ({2})"
+        msg = "[Flywheel] {0}: {1} ({2})"
         return msg.format(self.code, self.message, self.status)
 
 

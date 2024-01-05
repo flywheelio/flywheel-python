@@ -2,13 +2,13 @@ import unittest
 import pkgutil
 import logging
 import sys
-import segment.analytics as analytics
-from segment.analytics.client import Client
+import flywheel.analytics as analytics
+from flywheel.analytics.client import Client
 
 
 def all_names():
     for _, modname, _ in pkgutil.iter_modules(__path__):
-        yield 'segment.analytics.test.' + modname
+        yield 'flywheel.analytics.test.' + modname
 
 
 def all():

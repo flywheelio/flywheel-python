@@ -1,6 +1,6 @@
 import unittest
 
-import segment.analytics as analytics
+import flywheel.analytics as analytics
 
 
 class TestModule(unittest.TestCase):

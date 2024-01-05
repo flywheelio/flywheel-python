@@ -1,6 +1,6 @@
 
-from segment.analytics.version import VERSION
-from segment.analytics.client import Client
+from flywheel.analytics.version import VERSION
+from flywheel.analytics.client import Client
 
 __version__ = VERSION
 

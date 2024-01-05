@@ -6,12 +6,12 @@ import atexit
 import json
 
 from dateutil.tz import tzutc
-from segment.analytics.oauth_manager import OauthManager
+from flywheel.analytics.oauth_manager import OauthManager
 
-from segment.analytics.utils import guess_timezone, clean
-from segment.analytics.consumer import Consumer, MAX_MSG_SIZE
-from segment.analytics.request import post, DatetimeSerializer
-from segment.analytics.version import VERSION
+from flywheel.analytics.utils import guess_timezone, clean
+from flywheel.analytics.consumer import Consumer, MAX_MSG_SIZE
+from flywheel.analytics.request import post, DatetimeSerializer
+from flywheel.analytics.version import VERSION
 
 import queue
 
@@ -38,12 +38,12 @@ class Client(object):
         oauth_client_id = None
         oauth_client_key = None
         oauth_key_id = None
-        oauth_auth_server = 'https://oauth2.segment.io'
+        oauth_auth_server = 'https://oauth2.theflywheel.app'
         oauth_scope = 'tracking_api:write'
 
 
-    """Create a new Segment client."""
-    log = logging.getLogger('segment')
+    """Create a new Flywheel client."""
+    log = logging.getLogger('flywheel')
 
     def __init__(self,
                  write_key=DefaultConfig.write_key,

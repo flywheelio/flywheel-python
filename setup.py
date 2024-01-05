@@ -6,17 +6,12 @@ try:
 except ImportError:
     from distutils.core import setup
 # Don't import analytics-python module here, since deps may not be installed
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'segment','analytics'))
-from version import VERSION
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'flywheel','analytics'))
 
 long_description = '''
-Segment is the simplest way to integrate analytics into your application.
-One API allows you to turn on any other analytics service. No more learning
-new APIs, repeated code, and wasted development time.
+Flywheel: The all-in-one growth platform
 
-This is the official python client that wraps the Segment REST API (https://segment.com).
-
-Documentation and more details at https://github.com/segmentio/analytics-python
+This is the official python client that wraps the Flywheel API (https://tryflywheel.com).
 '''
 
 install_requires = [
@@ -27,20 +22,19 @@ install_requires = [
 
 tests_require = [
     "mock==2.0.0",
-    "pylint==2.8.0",
     "flake8==3.7.9",
 ]
 
 setup(
-    name='segment-analytics-python',
-    version=VERSION,
-    url='https://github.com/segmentio/analytics-python',
-    author='Segment',
-    author_email='friends@segment.com',
-    maintainer='Segment',
-    maintainer_email='friends@segment.com',
-    test_suite='segment.analytics.test.all',
-    packages=['segment.analytics', 'segment.analytics.test'],
+    name='flywheel-analytics-python',
+    version='0.0.1',
+    url='https://github.com/flywheelio/analytics-python',
+    author='Flywheel',
+    author_email='engineering@theflywheel.app',
+    maintainer='Flywheel',
+    maintainer_email='engineering@theflywheel.app',
+    test_suite='flywheel.analytics.test.all',
+    packages=['flywheel.analytics', 'flywheel.analytics.test'],
     python_requires='>=3.6.0',
     license='MIT License',
     install_requires=install_requires,
