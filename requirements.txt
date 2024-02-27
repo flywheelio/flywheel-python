@@ -46,7 +46,7 @@ rfc3986==2.0.0
 shellingham==1.4.0
 six==1.15.0
 termcolor==1.1.0
-tomlkit==0.7.2
+tomlkit==0.12.4
 tqdm==4.63.0
 twine==3.8.0
 typing-extensions==3.10.0.2
